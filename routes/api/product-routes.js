@@ -47,7 +47,7 @@ router.get('/:id', async (req, res) => {
       },
       {
         model: Tag,
-        attributes: ['id,tag_name']
+        attributes: ['id', 'tag_name']
       }
     ],
     });
@@ -150,7 +150,7 @@ router.delete('/:id', async (req, res) => {
     if (!deleteProduct) {
       return res.status(404).json({ message: 'No product with this id, try again with a different id'})
     }
-    res.json(deleteProduct);
+    res.json({message: 'Product deleted succesfully'});
   } catch (err) {
     res.status(404).json(err);
   }
